@@ -1,0 +1,67 @@
+
+<div class="container" style="margin-left: 0;padding: 0;">
+  <table class="table table-hover table-bordered" style="margin: 0; padding: 0;">
+    <tr>
+      <th> NO </th>
+      <th> Product Name </th>
+      <th> Product Price </th>
+      <th> Avaliable </th>
+      <th> product Amount </th>
+      <th> Time Of Operation</th>
+      <th> User Email </th>
+      <th> First Name </th>
+      <th> Total </th>
+      <th> Status </th>
+      <th> Status Change</th>
+      <th> Operational</th>
+
+    </tr>
+
+    <tr *ngFor="let prod of products ;let i=index" [hidden]="products.length < 1 || products[0]._id ==''" >
+      <td> {{i+1}}</td>
+      <td class="name" style="max-width:200px; word-break:normal ; "> {{prod.productId.name|uppercase}}</td>
+      <td> {{prod.productId.price|currency}}</td>
+      <td> {{prod.productId.amount|number}}</td>
+      <td>{{prod.amount}}</td>
+      <td>{{prod.operationDate|date:'short'}}</td>
+      <td> {{prod.userId.email}}</td>
+      <td style="max-width:140px; word-break:normal ;"> {{prod.userId.name|uppercase}}</td>
+      <td> {{prod.productId.price*prod.amount|currency}} </td>
+      <td>{{prod.status}}</td>
+      <td><select [(ngModel)]="selectVal" >
+        <option value="delivered" [selected]="prod.status=='delivered'"> Delivered</option>
+        <option value="notdelivered"  [selected]="prod.status=='notdelivered'"> Not Delivered</option>
+        <option value="way"  [selected]="prod.status=='way'"> In Way To You </option>
+
+      </select></td>
+
+
+      <td>
+        <!-- <button  class="btn btn-danger" (click)="deletesingleProd(prod._id)"> Delete</button> -->
+        <!-- <button  class="btn btn-success" (click)="modeifycard(prod._id,amount.value)"> Update</button> -->
+        <button class="btn btn-danger text-center"
+mwlConfirmationPopover
+ [popoverTitle]="poptitle"
+ [popoverMessage]="popMessage"
+ placement="left"
+ (confirm)="deletesingleProd(prod.userId._id,prod._id)"
+ (cancel)="cancleClicked=true"> Delete </button>
+
+ <button class="btn btn-success text-center"
+ mwlConfirmationPopover
+  [popoverTitle]="poptitle1"
+  [popoverMessage]="popMessage2"
+  placement="left"
+  (confirm)="modeifycard(prod.userId._id , prod.productId._id)"
+  (cancel)="cancleClicked=true"> Update </button>
+
+
+
+      </td>
+
+
+
+    </tr>
+
+  </table>
+

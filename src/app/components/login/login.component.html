@@ -1,0 +1,48 @@
+<div class="container formy">
+  <form [formGroup]="loginForm" (ngSubmit)="loginSubmit()" >
+    <div class="simple-login-container">
+      <h1>Login </h1>
+      <div class="row">
+          <div class="col-md-12 form-group">
+            <div style="display: flex;">
+              <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email" autofocus style="display: inline-block; margin-right: 10px;">
+           <img *ngIf="satus==200||!emailC?.errors" src="/../../assets/images/ok.jpg"alt="success" width="20px" height="20px" style="display: inline; float: right;">
+            </div>
+            <div *ngIf="satus==400" class="container">
+              <div class="alert-danger form-control" >
+                <h5> {{mess}}</h5>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-12 form-group">
+            <div style="display: flex;">
+            <input type="password" class="form-control" formControlName="password" style="display: inline-block; margin-right: 10px;">
+            <img *ngIf="satus==200||!passwordC?.errors" src="/../../assets/images/ok.jpg"alt="success" width="20px" height="20px" style="display: inline; float: right;">
+
+            </div>
+            <div *ngIf="satus==401" class="container">
+              <div class="alert-danger form-control" >
+                <h5> {{mess}}</h5>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 form-group">
+            <input type="submit" class="btn btn-block btn-login" placeholder="Enter your Password" >
+        </div>
+    </div>
+    </div>
+
+    </form>
+
+</div>
+<!-- <div *ngIf="mess!=''" class="container">
+  <div class="success" *ngIf="mess=='ok'">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/80/Symbol_OK.svg" width="60px" height="50px">
+    <h1 class="text-center"> You Login Success </h1>
+  </div>
+
+</div> -->

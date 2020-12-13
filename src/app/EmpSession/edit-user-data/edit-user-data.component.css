@@ -1,0 +1,14 @@
+table , th, tr,td{
+  /* border: 2px solid black; */
+  text-align: center;
+  overflow: hidden;
+  }
+
+  tr:hover , .name:hover {overflow: visible; background-color: indigo; color: ivory;}
+  .name:hover{color: black}
+.red{
+  background-color: red;
+}
+.blue{
+  background-color: blue;
+}

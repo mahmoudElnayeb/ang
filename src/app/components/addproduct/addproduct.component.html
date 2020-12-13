@@ -1,0 +1,42 @@
+
+<div class="container text-center">
+  <!-- name:string
+  amount:number
+  image:string
+  price:number
+  description:string
+  category:string
+  userProduct:string -->
+<!-- <h3>Add Category </h3> -->
+
+<app-category class="mt-5" (catChange)="update($event)" [hidden]="role!='super'"></app-category>
+<hr>
+
+
+  <form [formGroup]="addProduct" (ngSubmit)="submit()" >
+    <fieldset>
+      <legend> Add Product </legend>
+
+      <input type="text" class="form-control" name="name" placeholder="Name" formControlName="name">
+      <br>
+      <input type="number" class="form-control" name="amount" placeholder="amount" formControlName="amount">
+      <br>
+      <input type="number" class="form-control" name="price" placeholder="Price" formControlName="price">
+      <br>
+      <textarea type="text" class="form-control" name="description" placeholder="Description" formControlName="description"></textarea>
+      <br>
+      <select  class="form-control" name="category" formControlName="category" ngModel  >
+          <option value="" selected [disabled]=true>Choose a category</option>
+          <option value="" *ngFor="let cat of category" [ngValue]="cat._id">{{cat.name}}</option>
+
+      </select>
+      <br>
+      <input type="file" class="form-control" name="image" placeholder="Image" formControlName="image"  [(ngModel)]="image">
+      <br>
+      <input type="submit" value="Add Product" class="btn btn-primary mb-5">
+    </fieldset>
+  </form>
+
+
+</div>
+

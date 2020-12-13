@@ -1,0 +1,29 @@
+.navbar{
+  z-index: 3;
+}
+.navbar-brand{
+  color: rgba(44, 145, 44, 0.6);
+}
+.email{
+  /* align-items: end; */
+  color: gold;
+}
+
+
+.collapse{
+  display: flex;
+
+  justify-content: center;
+}
+.logout{
+  color: red;
+  background-color: rgb(197,199,201);
+  width: 60px;
+  height: 30px;
+  float: right;
+  padding: 5px 10px;
+  border-radius: 3px;
+  margin: 11px;
+  text-align: center;
+  user-select: none;
+}

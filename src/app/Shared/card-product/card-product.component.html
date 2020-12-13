@@ -1,0 +1,16 @@
+
+
+      <div  class="car">
+        <div class="card  " style="width: 20rem;height:23rem; ">
+          <img src="{{product.image}}" class="card-img-top" alt="..." height="43%">
+          <div class="card-body">
+            <h4 class="card-title text-center"><a routerLink="{{product._id}}">{{product.name}}</a></h4>
+            <p class="card-text">{{product.description}}</p>
+            <h5 style="display: inline; color: red; margin-right: 30px;"> Avaliable</h5>     ( {{product.amount}} )  <br>
+            <input type="number" class="ml-5 mt-2 text-center" [(ngModel)]="amount" placeholder="how Much">
+
+            <button (click)="submit()" class="btn btn-primary mx-auto mt-3" style="display: block;">Add To Cart </button>
+          </div>
+        </div>
+
+      </div>
